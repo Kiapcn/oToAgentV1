@@ -1,9 +1,123 @@
+:root {
+    --sidebar-width: 60px;
+    --sidebar-expanded-width: 240px;
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --text-color: #ecf0f1;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+#canvas-container {
+    position: absolute;
+    left: var(--sidebar-width);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #d4a56a;
+}
+
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+#sidebar:hover {
+    width: var(--sidebar-expanded-width);
+}
+
+.sidebar-item {
+    padding: 15px;
+    color: var(--text-color);
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar-item:hover {
+    background: var(--secondary-color);
+}
+
+.sidebar-item i {
+    width: 30px;
+    text-align: center;
+}
+
+.sidebar-item span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#sidebar:hover .sidebar-item span {
+    opacity: 1;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
     padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#toolbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.tool-btn {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tool-btn:hover {
+    background: var(--secondary-color);
 }
 
 header {

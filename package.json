@@ -1,0 +1,17 @@
+{
+  "name": "otov2",
+  "version": "1.0.0",
+  "description": "Plateforme interactive de création et de partage de contenu IA",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "three": "^0.162.0"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
+  }
+} 

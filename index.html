@@ -3,35 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oToV2 - Base</title>
+    <title>oToV2 - Toile Interactive</title>
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+        }
+
+        #toolbar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .tool-btn {
+            padding: 8px 16px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tool-btn:hover {
+            background-color: #45a049;
+        }
+
+        #admin-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        #admin-link:hover {
+            background-color: #1976D2;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur oToV2</h1>
-    </header>
+    <div id="sidebar">
+        <div class="sidebar-item">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-robot"></i>
+            <span>Agents</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Paramètres</span>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
     
-    <main>
-        <section id="project-plan">
-            <h2>Plan d'Action</h2>
-            <p>Ce projet suit une architecture détaillée pour le développement de la plateforme oTo.</p>
-            <ul>
-                <li>🔹 Mise en place de Cursor & GitHub</li>
-                <li>🔹 Développement de la base HTML/CSS/JS</li>
-                <li>🔹 Intégration de la Console de Log</li>
-                <li>🔹 Sécurisation de RunPod</li>
-                <li>🔹 Automatisation des mises à jour</li>
-                <li>🔹 Intégration de l'IA et des tokens</li>
-            </ul>
-        </section>
-        
-        <section id="log-console">
-            <h2>Console de Log</h2>
-            <div id="console-output"></div>
-        </section>
-    </main>
-    
-    <script src="script.js"></script>
+    <div id="toolbar">
+        <button class="tool-btn" id="zoom-in"><i class="fas fa-plus"></i></button>
+        <button class="tool-btn" id="zoom-out"><i class="fas fa-minus"></i></button>
+        <button class="tool-btn" id="reset-view"><i class="fas fa-compress-arrows-alt"></i></button>
+    </div>
+
+    <div id="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <a href="admin/dashboard.html" id="admin-link">Dashboard</a>
+
+    <script type="module" src="/js/canvas.js"></script>
 </body>
 </html>
